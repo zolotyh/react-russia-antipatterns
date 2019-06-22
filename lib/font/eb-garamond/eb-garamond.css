@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 400;
+    src: url(EB+Garamond_400_normal.eot); /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGUmQSNjdsmc35JDF1K5GRxSD0.eot */
+    src: local('☺'),
+        url(EB+Garamond_400_normal.eot?#iefix) format('embedded-opentype'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGUmQSNjdsmc35JDF1K5GRxSD0.eot */
+        url(EB+Garamond_400_normal.woff2) format('woff2'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGUmQSNjdsmc35JDF1K5GRxSDk.woff2 */
+        url(EB+Garamond_400_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGUmQSNjdsmc35JDF1K5GRxSD8.woff */
+        url(EB+Garamond_400_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGUmQSNjdsmc35JDF1K5GRxSDw_YAPI.ttf */
+        url(EB+Garamond_400_normal.svg#EB+Garamond_400_normal) format('svg'); /* http://fonts.gstatic.com/l/font?kit=SlGUmQSNjdsmc35JDF1K5GRxSD4&skey=fde9b303600e495b&v=v10#EBGaramond */
+}
+@font-face {
+    font-family: 'Esteban';
+    font-style: normal;
+    font-weight: 400;
+    src: url(Esteban_400_normal.eot); /* http://fonts.gstatic.com/s/esteban/v7/r05bGLZE-bdGdN-GROyJ4w.eot */
+    src: local('☺'),
+        url(Esteban_400_normal.eot?#iefix) format('embedded-opentype'), /* http://fonts.gstatic.com/s/esteban/v7/r05bGLZE-bdGdN-GROyJ4w.eot */
+        url(Esteban_400_normal.woff2) format('woff2'), /* http://fonts.gstatic.com/s/esteban/v7/r05bGLZE-bdGdN-GROyJ5w.woff2 */
+        url(Esteban_400_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/esteban/v7/r05bGLZE-bdGdN-GROyJ4Q.woff */
+        url(Esteban_400_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/esteban/v7/r05bGLZE-bdGdN-GROyJ4hgnQ8A.ttf */
+        url(Esteban_400_normal.svg#Esteban_400_normal) format('svg'); /* http://fonts.gstatic.com/l/font?kit=r05bGLZE-bdGdN-GROyJ4A&skey=e121f18102369471&v=v7#Esteban */
+}
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: 400;
+    src: url(EB+Garamond_400_italic.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(EB+Garamond_400_italic.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(EB+Garamond_400_italic.woff2) format('woff2'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGWmQSNjdsmc35JDF1K5GRweD81Zw.woff2 */
+        url(EB+Garamond_400_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGWmQSNjdsmc35JDF1K5GRweD81YQ.woff */
+        url(EB+Garamond_400_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGWmQSNjdsmc35JDF1K5GRweD81YiHKpWg.ttf */
+        url(EB+Garamond_400_italic.svg#EB+Garamond_400_italic) format('svg'); /* {{svg-gf-url}} */
+}
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: 500;
+    src: url(EB+Garamond_500_italic.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(EB+Garamond_500_italic.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(EB+Garamond_500_italic.woff2) format('woff2'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGLmQSNjdsmc35JDF1K5GRwcMgWcgjoqA.woff2 */
+        url(EB+Garamond_500_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGLmQSNjdsmc35JDF1K5GRwcMgWcgjorg.woff */
+        url(EB+Garamond_500_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGLmQSNjdsmc35JDF1K5GRwcMgWcgjorUK8K7c.ttf */
+        url(EB+Garamond_500_italic.svg#EB+Garamond_500_italic) format('svg'); /* {{svg-gf-url}} */
+}
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: 600;
+    src: url(EB+Garamond_600_italic.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(EB+Garamond_600_italic.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(EB+Garamond_600_italic.woff2) format('woff2'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGLmQSNjdsmc35JDF1K5GRwcOQRcgjoqA.woff2 */
+        url(EB+Garamond_600_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGLmQSNjdsmc35JDF1K5GRwcOQRcgjorg.woff */
+        url(EB+Garamond_600_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGLmQSNjdsmc35JDF1K5GRwcOQRcgjorUK8K7c.ttf */
+        url(EB+Garamond_600_italic.svg#EB+Garamond_600_italic) format('svg'); /* {{svg-gf-url}} */
+}
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: 700;
+    src: url(EB+Garamond_700_italic.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(EB+Garamond_700_italic.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(EB+Garamond_700_italic.woff2) format('woff2'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGLmQSNjdsmc35JDF1K5GRwcIAQcgjoqA.woff2 */
+        url(EB+Garamond_700_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGLmQSNjdsmc35JDF1K5GRwcIAQcgjorg.woff */
+        url(EB+Garamond_700_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGLmQSNjdsmc35JDF1K5GRwcIAQcgjorUK8K7c.ttf */
+        url(EB+Garamond_700_italic.svg#EB+Garamond_700_italic) format('svg'); /* {{svg-gf-url}} */
+}
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: 800;
+    src: url(EB+Garamond_800_italic.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(EB+Garamond_800_italic.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(EB+Garamond_800_italic.woff2) format('woff2'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGLmQSNjdsmc35JDF1K5GRwcJwTcgjoqA.woff2 */
+        url(EB+Garamond_800_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGLmQSNjdsmc35JDF1K5GRwcJwTcgjorg.woff */
+        url(EB+Garamond_800_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGLmQSNjdsmc35JDF1K5GRwcJwTcgjorUK8K7c.ttf */
+        url(EB+Garamond_800_italic.svg#EB+Garamond_800_italic) format('svg'); /* {{svg-gf-url}} */
+}
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 500;
+    src: url(EB+Garamond_500_normal.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(EB+Garamond_500_normal.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(EB+Garamond_500_normal.woff2) format('woff2'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGJmQSNjdsmc35JDF1K5GyGaywWQg4.woff2 */
+        url(EB+Garamond_500_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGJmQSNjdsmc35JDF1K5GyGaywWQgg.woff */
+        url(EB+Garamond_500_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGJmQSNjdsmc35JDF1K5GyGaywWQgvir2C-.ttf */
+        url(EB+Garamond_500_normal.svg#EB+Garamond_500_normal) format('svg'); /* {{svg-gf-url}} */
+}
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 600;
+    src: url(EB+Garamond_600_normal.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(EB+Garamond_600_normal.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(EB+Garamond_600_normal.woff2) format('woff2'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGJmQSNjdsmc35JDF1K5GyqbCwWQg4.woff2 */
+        url(EB+Garamond_600_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGJmQSNjdsmc35JDF1K5GyqbCwWQgg.woff */
+        url(EB+Garamond_600_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGJmQSNjdsmc35JDF1K5GyqbCwWQgvir2C-.ttf */
+        url(EB+Garamond_600_normal.svg#EB+Garamond_600_normal) format('svg'); /* {{svg-gf-url}} */
+}
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 700;
+    src: url(EB+Garamond_700_normal.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(EB+Garamond_700_normal.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(EB+Garamond_700_normal.woff2) format('woff2'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGJmQSNjdsmc35JDF1K5GzObSwWQg4.woff2 */
+        url(EB+Garamond_700_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGJmQSNjdsmc35JDF1K5GzObSwWQgg.woff */
+        url(EB+Garamond_700_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGJmQSNjdsmc35JDF1K5GzObSwWQgvir2C-.ttf */
+        url(EB+Garamond_700_normal.svg#EB+Garamond_700_normal) format('svg'); /* {{svg-gf-url}} */
+}
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 800;
+    src: url(EB+Garamond_800_normal.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(EB+Garamond_800_normal.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(EB+Garamond_800_normal.woff2) format('woff2'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGJmQSNjdsmc35JDF1K5GzSbiwWQg4.woff2 */
+        url(EB+Garamond_800_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGJmQSNjdsmc35JDF1K5GzSbiwWQgg.woff */
+        url(EB+Garamond_800_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ebgaramond/v10/SlGJmQSNjdsmc35JDF1K5GzSbiwWQgvir2C-.ttf */
+        url(EB+Garamond_800_normal.svg#EB+Garamond_800_normal) format('svg'); /* {{svg-gf-url}} */
+}

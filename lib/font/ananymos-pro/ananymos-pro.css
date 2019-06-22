@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Anonymous Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: url(Anonymous+Pro_400_normal.eot); /* http://fonts.gstatic.com/s/anonymouspro/v12/rP2Bp2a15UIB7Un-bOeISG3pHl828Q.eot */
+    src: local('☺'),
+        url(Anonymous+Pro_400_normal.eot?#iefix) format('embedded-opentype'), /* http://fonts.gstatic.com/s/anonymouspro/v12/rP2Bp2a15UIB7Un-bOeISG3pHl828Q.eot */
+        url(Anonymous+Pro_400_normal.woff2) format('woff2'), /* http://fonts.gstatic.com/s/anonymouspro/v12/rP2Bp2a15UIB7Un-bOeISG3pHl829Q.woff2 */
+        url(Anonymous+Pro_400_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/anonymouspro/v12/rP2Bp2a15UIB7Un-bOeISG3pHl828w.woff */
+        url(Anonymous+Pro_400_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/anonymouspro/v12/rP2Bp2a15UIB7Un-bOeISG3pHl828AP-4Ks.ttf */
+        url(Anonymous+Pro_400_normal.svg#Anonymous+Pro_400_normal) format('svg'); /* http://fonts.gstatic.com/l/font?kit=rP2Bp2a15UIB7Un-bOeISG3pHl828g&skey=5f69fa382b387122&v=v12#AnonymousPro */
+}

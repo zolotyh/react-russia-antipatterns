@@ -1,0 +1,465 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+        <script src="js/chunk.js"></script>
+        <script src="js/main.js"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section  data-background-transition="fade">
+                    <h1>Как не <br/>нужно<br/> делать
+                        <span class="a1">
+                        .
+                        </span>
+                    </h1>
+                </section>
+                <section>
+                    <img style="height: 2em" src="img/az.svg" alt="">
+                    <h1>AZ</h1>
+                    <p>Aleksei Zolotykh</p>
+                    <ul>
+                        <li class="fragment">TL in Infobip</li>
+                        <li class="fragment">PC in HolyJS</li>
+                    </ul>
+                </section>
+				<section>
+                    <p>Несколько неприятных историй из жизни разработчика</p>
+                </section>
+                <section>
+                    <h1>
+                        Про <span class="a1">this</span> и замыкания.
+                    </h1>
+                </section>
+                <section data-background="#000" data-background-transition="fade">
+                    <p>С этим сталкиваются все</p>
+                </section>
+                <section data-transition="slide none">
+                    <pre><code data-noescape class="hljs javascript" data-trim>
+                    ...
+
+                    render(){
+                      return &lt;button onClick={this.onClick}&gt;&lt;/button&gt;
+                    }
+
+                    ...
+                    </code></pre>
+                </section>
+                <section data-transition="none">
+                    <pre><code data-noescape class="hljs javascript" data-trim>
+                    ...
+
+                    render(){
+                      return &lt;button onClick={this.onClick}&gt;&lt;/button&gt;
+                    }
+                    onClick(){
+                        this.setState(...)
+                    }
+
+                    ...
+                    </code></pre>
+                </section>
+                <section data-transition="none slide">
+                    <pre><code data-noescape class="hljs javascript" data-trim>
+                    ...
+
+                    render(){
+                      return &lt;button onClick={this.onClick}&gt;&lt;/button&gt;
+                    }
+                    onClick(){
+                        <mark>this</mark>.setState(...)
+                    }
+
+                    ...
+                    </code></pre>
+                </section>
+                <section data-transition="none slide">
+                    <pre><code data-noescape class="hljs javascript" data-trim>
+                    ...
+
+                    render(){
+                      return &lt;button onClick={<mark>(e) =&gt; this.onClick(e)</mark>}&gt;&lt;/button&gt;
+                    }
+                    onClick(){
+                        this.setState(...)
+                    }
+
+                    ...
+                    </code></pre>
+                </section>
+                <section>
+                    <pre><code data-trim>
+const a = () =&gt; null;
+const b = () =&gt; null;
+console.log(a == b) // false
+                    </code></pre>
+                </section>
+                <section>
+                    &lt;Input /&gt;
+                    <pre><code data-trim data-noescape>
+class Input extends PureComponent {
+  i = 0;
+  render() {
+    this.i++;
+    return (
+      &lt;div&gt;
+        &lt;input onChange={this.props.onChange} /&gt;
+        &lt;p&gt; Rendered{this.i} times&lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+                    </code></pre>
+                </section>
+                <section data-transition="slide none">
+                    <p>Component A</p>
+                    <pre><code data-trim data-noescape>
+class A extends Component {
+  state = { value: '' };
+  onChange = e =&gt; {
+    this.setState({ value: e.target.value });
+  };
+  render() {
+    return (&lt;Input onChange={this.onChange} /&gt;);
+  }
+}
+                    </code></pre>
+                </section>
+                <section data-transition="none slide">
+                    <p>Component A</p>
+                    <pre><code data-trim data-noescape>
+class A extends Component {
+  state = { value: '' };
+  onChange =<mark> e =&gt; </mark>{
+    this.setState({ value: e.target.value });
+  };
+  render() {
+    return (&lt;Input onChange={this.onChange} /&gt;);
+  }
+}
+                    </code></pre>
+                </section>
+                <section data-transition="slide none">
+                    <p>Component B</p>
+                    <pre><code data-trim date-noescape>
+class B extends Component {
+  state = { value: '' };
+  onChange(e) {
+    this.setState({ value: e.target.value });
+  }
+  render() {
+    return (&lt;Input onChange={e =&gt; this.onChange(e)} /&gt;);
+  }
+}
+                    </code></pre>
+                </section>
+                <section data-transition="none slide">
+                    <p>Component B</p>
+                    <pre><code data-trim data-noescape>
+class B extends Component {
+  state = { value: '' };
+  onChange(e) {
+    this.setState({ value: e.target.value });
+  }
+  render() {
+    return (&lt;Input onChange={<mark>e =&gt; </mark>this.onChange(e)} /&gt;);
+  }
+}
+                    </code></pre>
+                </section>
+                <section>
+                    <img src="img/render.png" alt="">
+                </section>
+                <section data-background="#ff6002">
+                    <p>Почему мы должны об этом знать?!</p>
+                </section>
+                <section>
+                    <h1>
+                        Про CSS классы.
+                    </h1>
+                </section>
+                <section>
+                    Программисты любят программировать
+                </section>
+                <section>
+                    <h3>
+                        Задача
+                    </h3>
+                    <p>Напишите функцию, которая складывает 2 простых числа (2 и 2)</p>
+                </section>
+                <section data-transition="slide none">
+                    <pre><code class="javascript" data-trim data-noescape>
+                    function sum(x,y){
+                      return x + y
+                    }
+                    </code></pre>
+                    <p class="fragment">Что будет если?</p>
+                    <pre class="fragment">
+                        <code data-trim data-noescape>
+                    sum([], []); <span class="fragment">// =&gt;""</span>
+                    </code></pre>
+                </section>
+                <section>
+                    <pre><code data-trim data-noescape>
+                    function sum(x,y){
+                       if (typeOf x !== 'number' ||  typeOf y !== 'number'){
+                         throw 'test'
+                       }
+                       return x + y;
+                    }
+                    </code></pre>
+                    <p>Что будет если?</p>
+                    <pre class="fragment">
+                        <code data-trim data-noescape>
+                    sum(Number.MAX_VALUE, 10); <span class="fragment">// =&gt;Number.MAX_VALUE</span>
+                    </code></pre>
+                    <p class="fragment">
+                    BigInt?
+                    </p>
+                </section>
+                <section>
+                    <pre><code data-trim data-noescape>
+                    typeof Infinity  <span class="fragment">//=&gt; number</span>
+                    </code></pre>
+                    <pre class="fragment"><code data-trim data-noescape>
+                    typeof NaN  <span class="fragment">//=&gt; number</span>
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>
+                        Задача
+                    </h3>
+                    <p>Напишите функцию, которая складывает 2 простых числа (2 и 2)</p>
+                    <pre class="fragment"><code data-trim>
+                        function sum(){
+                            return 4;
+                        }
+                    </code></pre>
+                </section>
+<!-- {classNames(bem('name-col'), 'tf-col-name')} -->
+                <section data-transition="slide none">
+                    Верстка
+                    <pre><code data-trim>
+                &lt;div className="user--name"&gt;Vasya&lt;/div&gt;
+                    </code></pre>
+                    <pre class="fragment"><code data-trim>
+                &lt;div className="user--surname"&gt;Pupkin&lt;/div&gt;
+                    </code></pre>
+                </section>
+                <section data-transition="none slide">
+                    Верстка
+                    <pre><code data-trim data-noescape>
+                &lt;div className="<mark>user</mark>--name"&gt;Vasya&lt;/div&gt;
+                    </code></pre>
+                    <pre><code data-trim data-noescape>
+                &lt;div className="<mark>user</mark>--surname"&gt;Pupkin&lt;/div&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    bemClass
+                    <pre><code data-trim style="font-size: .5em">
+export default function bemClass(block: string) {
+    return (element?: string, modificators?: object): string =&gt; {
+        if (!element) { return block; }
+        let result = [getElementClass(block, element)];
+        if (modificators) {
+            forEach(modificators, (needAdd, mod) =&gt; {
+                if (!needAdd) { return; }
+                result.push(getElementClass(block, element, mod));
+            });
+        }
+        return result.join(' ');
+    };
+}
+                    </code></pre>
+                </section>
+                <section data-transition="slide none">
+
+                    <pre><code data-trim data-noescape>
+const bem = bemClass('user');
+...
+<span class="fragment">&lt;div className="<mark>user</mark>--name"&gt;Vasya&lt;/div&gt;
+&lt;div className="<mark>user</mark>--surname"&gt;Pupkin&lt;/div&gt;</span>
+                    </code></pre>
+                </section>
+                <section data-transition="none slide">
+                    <pre><code data-trim data-noescape>
+const bem = bemClass('user');
+...
+&lt;div className={bem('name')}&gt;Vasya&lt;/div&gt;
+&lt;div className={bem('surname')}&gt;Pupkin&lt;/div&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <p>Добавить классы для QA</p>
+                </section>
+                <section data-transition="slide none">
+                    <pre><code data-trim data-noescape>
+const bem = bemClass('user');
+...
+&lt;div className={bem('name')}&gt;Vasya&lt;/div&gt;
+&lt;div className={bem('surname')}&gt;Pupkin&lt;/div&gt;
+                    </code></pre>
+                </section>
+                <section data-transition="none">
+                    <pre><code data-trim data-noescape>
+import classNames from 'classnames';
+...
+
+const bem = bemClass('user');
+...
+&lt;div className={bem('name')}&gt;Vasya&lt;/div&gt;
+&lt;div className={bem('surname')}&gt;Pupkin&lt;/div&gt;
+                    </code></pre>
+                </section>
+                <section data-transition="none">
+                    <pre><code data-trim data-noescape>
+import classNames from 'classnames';
+...
+
+const bem = bemClass('user');
+...
+&lt;div className={classNames(bem('name'), 'qa-name')}&gt;Vasya&lt;/div&gt;
+&lt;div className={classNames(bem('surname'), 'qa-surname')}&gt;Pupkin&lt;/div&gt;
+                    </code></pre>
+                </section>
+                <section data-transition="none slide">
+                    <pre><code data-trim data-noescape>
+                &lt;div className="user--name qa-name"&gt;Vasya&lt;/div&gt;
+                &lt;div className="user--surname qa-surname"&gt;Pupkin&lt;/div&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <pre><code data-trim>
+                    .user {
+                        &--name {
+                            &-item {
+                                color: red
+                            }
+                        }
+                    }
+                    </code></pre>
+                </section>
+                <section>
+                    <img src="img/petlya.jpg" alt="">
+                    <p>Здесь должен быть ваш Grep</p>
+                </section>
+                <section>
+                    <h1>
+                        Про типы.
+                    </h1>
+                </section>
+                <section>Typescript  + Redux + React</section>
+                <section>
+                    Typescript + Redux
+                    <pre><code data-trim="">
+import { Component } from '../components';
+
+const mapStateToProps = (state: Types.RootState) =&gt; ({...});
+const dispatchProps = {...};
+
+const ComponentConnected = connect(
+  mapStateToProps,
+  dispatchProps
+)(Component);
+                    </code></pre>
+                </section>
+                <section>
+                    <pre><code data-trim>
+class Component extends React.PureComponent {
+   ...
+}
+                    </code></pre>
+                </section>
+                <section>
+                    <pre><code data-trim data-noescape>
+interface User {
+    firstName: string;
+    lastName: string;
+    acountBalance: number;
+    isAdmin: boolean;
+    roles: Number[]
+}
+
+<span class="fragment">...
+  await restCient.get&lt;User&gt;(id);
+..</span>
+                    </code></pre>
+                </section>
+                <section>
+                    <pre><code data-trim>
+const Title = (user: User) =&gt; (
+  &lt;div&gt;
+    {user.lastName} {user.firstName}
+  &lt;/div&gt;
+)
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>
+                        Про SO и DRY.
+                    </h1>
+                </section>
+                <section>
+                    <img src="img/tet.jpg" alt="">
+                </section>
+                <section>
+                    <h1 style="font-size: 1.8em">
+                        про ID, тесты и инкапсуляцию.
+                    </h1>
+                </section>
+                <section>
+                    <h1>
+                        Про здравый смысл.
+                    </h1>
+                </section>
+                <section>
+                    <h1>Про вопросы.</h1>
+                    <p>Aleksei Zolotykh</p>
+                    <ul>
+                        <li>twitter: @zolotyh</li>
+                        <li>telegram: @aazolotyh</li>
+                        <li>github: zolotyh</li>
+                    </ul>
+                </section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                hash: true,
+                progress: true,
+                controls: false,
+				dependencies: [
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
