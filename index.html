@@ -194,7 +194,7 @@ class B extends Component {
                 </section>
                 <section>
                     <h1>
-                        Про CSS классы.
+                        Про CSS классы<span class="a1">.</span>
                     </h1>
                 </section>
                 <section>
@@ -365,7 +365,7 @@ const bem = bemClass('user');
                 </section>
                 <section>
                     <h1>
-                        Про типы.
+                        Про типы<span class="a1">.</span>
                     </h1>
                 </section>
                 <section>Typescript  + Redux + React</section>
@@ -598,7 +598,7 @@ const UserDetails = ({fullName, value}) =&gt; {
                 </section>
                 <section>
                     <h1>
-                        Про здравый смысл.
+                        Про здравый смысл<span class="a1">.</span>
                     </h1>
                 </section>
                 <section>
@@ -610,7 +610,7 @@ const UserDetails = ({fullName, value}) =&gt; {
                     </ul>
                 </section>
                 <section>
-                    <h1>Про вопросы.</h1>
+                    <h1>Про вопросы<span class="a1">.</span></h1>
                     <p>Aleksei Zolotykh</p>
                     <ul>
                         <li>twitter: @zolotyh</li>
@@ -631,6 +631,8 @@ const UserDetails = ({fullName, value}) =&gt; {
                 hash: true,
                 progress: true,
                 controls: false,
+                pageNumbers: true,
+                slideNumber: true,
 				dependencies: [
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true }
