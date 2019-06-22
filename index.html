@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<title>reveal.js</title>
-
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/white.css">
@@ -553,20 +552,62 @@ test('should work', () =&gt; {
                 <section>
                     <pre><code data-trim>
 export function filter(list, value){
-	return list.filter(e =&gt; e.includes(value))
+  return list.filter(e =&gt; e.includes(value))
 }
 expect(filter(list, 'react').length).to.equal(1);
                     </code></pre>
                 </section>
                 <section>
                     <h1 style="font-size: 1.8em">
-                        про ID, тесты и инкапсуляцию.
+                        про I, тесты и инкапсуляцию.
                     </h1>
+                </section>
+                <section>
+I &mdash; Interface Segregation Principle
+                </section>
+                <section data-transition="slide none">
+                    <pre><code data-trim  data-noescape>
+const UserDetails = ({user}: {user: User}) =&gt; {
+  return (
+    &lt;div&gt;
+      {user.fullName} {user.account.balance.last.value}
+    &lt;/div&gt;
+    )
+}
+                    </code></pre>
+                </section>
+                <section data-transition="none slide">
+                    <pre><code data-trim  data-noescape>
+const UserDetails = ({user}: {user: User}) =&gt; {
+  return (
+    &lt;div&gt;
+      {user.fullName} <mark>{user.account.balance.last.value}</mark>
+    &lt;/div&gt;
+    )
+}
+                    </code></pre>
+                </section>
+                <section data-transition="none slide">
+                    <pre><code data-trim  data-noescape>
+const UserDetails = ({fullName, value}) =&gt; {
+  return (
+    &lt;div&gt;{fullName} <mark>{value}</mark>&lt;/div&gt;
+    )
+}
+                    </code></pre>
                 </section>
                 <section>
                     <h1>
                         Про здравый смысл.
                     </h1>
+                </section>
+                <section>
+                    <ul>
+                        <li class="fragment">SOLID</li>
+                        <li class="fragment">DRY</li>
+                        <li class="fragment">KISS</li>
+                        <li class="fragment">YAGNI</li>
+                    </ul>
                 </section>
                 <section>
                     <h1>Про вопросы.</h1>
