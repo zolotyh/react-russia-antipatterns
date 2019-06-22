@@ -384,44 +384,179 @@ const ComponentConnected = connect(
 )(Component);
                     </code></pre>
                 </section>
-                <section>
+                <section data-transition="slide none">
                     <pre><code data-trim>
 class Component extends React.PureComponent {
    ...
 }
                     </code></pre>
                 </section>
-                <section>
+                <section data-transition="none slide">
                     <pre><code data-trim data-noescape>
-interface User {
-    firstName: string;
-    lastName: string;
-    acountBalance: number;
-    isAdmin: boolean;
-    roles: Number[]
+class Component extends React.PureComponent<mark>&lt;Props, State&gt;</mark> {
+   ...
 }
-
-<span class="fragment">...
-  await restCient.get&lt;User&gt;(id);
-..</span>
                     </code></pre>
                 </section>
                 <section>
+                    <pre><code class="typescript" data-trim>
+const ConnectedCmp =
+    connect&lt;StateProps,
+            DispatchProps,
+            OwnProps,
+            GlobalState
+           &gt;(mapStateToProps, mapDispatchToProps)(Cmp);
+                    </code></pre>
+                </section>
+                <section>
+                    <pre><code>
+export interface StateProps {}
+export interface DispatchProps {}
+export interface OwnProps {}
+
+export interface State {}
+
+
+type Props = StateProps &amp; DispatchProps &amp; OwnProps;
+                    </code></pre>
+
+                </section>
+                <section data-background="#000">
+                    Зачем нужна типизация, если она не работает!?
+                </section>
+                <section>
+                    <h1 style="font-size: 1.8em">
+                        Про структуры <span class="a1">.</span>
+                    </h1>
+                </section>
+                <section>
+                    <p>Чем плохо?</p>
                     <pre><code data-trim>
-const Title = (user: User) =&gt; (
-  &lt;div&gt;
-    {user.lastName} {user.firstName}
-  &lt;/div&gt;
-)
+                    this.setState({
+                        formValues: {...},
+                        formErrors: {...}
+                    });
                     </code></pre>
                 </section>
                 <section>
                     <h1>
-                        Про SO и DRY.
+                        Про SO и <span class="a1">DRY</span>.
                     </h1>
                 </section>
                 <section>
+                    <mark>SO</mark>LID
+                </section>
+                <section style="text-align: left">
+                    S &mdash;Single Responsibility Principle
+                    <p class="fragment">
+                     O &mdash; Open/closed principle
+                    </p>
+                </section>
+                <section data-transition="slide none">
+                    <pre><code style="font-size: .5em; line-height: 1em" code data-trim>
+class FilterForm extends React.Component {
+  state = {
+    value: '',
+    frameworks: ['react', 'angular', 'ember', 'backbone']
+  };
+
+  handleChange = (event) =&gt; {
+    this.setState({value: event.target.value});
+  }
+
+
+  render() {
+    const filteredElements = this.state.frameworks
+      .filter(e =&gt; e.includes(this.state.value))
+      .map(e =&gt; &lt;li&gt;{ e }&lt;/li&gt;)
+
+    return (
+      &lt;div&gt;
+          &lt;input type="text" value={this.state.value} onChange={this.handleChange} /&gt;
+          &lt;ul&gt;{ filteredElements }&lt;/ul&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+                    </code></pre>
+                </section>
+                <section data-transition="none">
+                    <pre><code data-noescape style="font-size: .5em; line-height: 1em" code data-trim>
+class FilterForm extends React.Component {
+  state = {
+    value: '',
+    frameworks: ['react', 'angular', 'ember', 'backbone']
+  };
+
+  handleChange = (event) =&gt; {
+    this.setState({value: event.target.value});
+  }
+
+
+  render() {
+    <mark>const filteredElements = this.state.frameworks
+      .filter(e =&gt; e.includes(this.state.value))
+      .map(e =&gt; &lt;li&gt;{ e }&lt;/li&gt;)</mark>
+
+    return (
+      &lt;div&gt;
+          &lt;input type="text" value={this.state.value} onChange={this.handleChange} /&gt;
+          &lt;ul&gt;{ filteredElements }&lt;/ul&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+                    </code></pre>
+                </section>
+                <section data-transition="none slide">
+                    <pre><code data-noescape style="font-size: .5em; line-height: 1em" code data-trim>
+class FilterForm extends React.Component {
+  state = {
+    value: '',
+    frameworks: ['react', 'angular', 'ember', 'backbone']
+  };
+
+  handleChange = (event) =&gt; {
+    this.setState({value: event.target.value});
+  }
+
+
+  render() {
+    const filteredElements = this.state.frameworks
+      .filter(e =&gt; e.includes(this.state.value))
+      .map(e =&gt; &lt;li&gt;{ e }&lt;/li&gt;)
+
+    <mark>return (
+      &lt;div&gt;
+          &lt;input type="text" value={this.state.value} onChange={this.handleChange} /&gt;
+          &lt;ul&gt;{ filteredElements }&lt;/ul&gt;
+      &lt;/div&gt;
+    );</mark>
+  }
+}
+                    </code></pre>
+                </section>
+                <section>
                     <img src="img/tet.jpg" alt="">
+                </section>
+                <section>
+                    <p>Тесты</p>
+                    <pre><code data-trim>
+test('should work', () =&gt; {
+  const wrapper = shallow(&lt;FilterForm /&gt;);
+  expect(wrapper.find('li').length).to.equal(4);
+  wrapper.find('input').simulate('change', {target: {value: 'react'}});
+  expect(wrapper.find('li').length).to.equal(1);
+});
+                    </code></pre>
+                </section>
+                <section>
+                    <pre><code data-trim>
+export function filter(list, value){
+	return list.filter(e =&gt; e.includes(value))
+}
+expect(filter(list, 'react').length).to.equal(1);
+                    </code></pre>
                 </section>
                 <section>
                     <h1 style="font-size: 1.8em">
